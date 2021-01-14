@@ -1,5 +1,10 @@
 package FirstTestSuite;
 
+/*
+Знакомлюсь с аннотациями, приоритетами, группами.
+Делаю репорты по результатам теста в файл FirstTestSuite.xml
+ */
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -15,12 +20,16 @@ public class SecondTestCase {
         System.out.println("Opening browser");
     }
 
-    @Test(priority = 6, dependsOnMethods = {"addCustomer"}) //добавили зависимость, если addCustomer упешно
-    void searchCustomer(){                                  //выполнен, то запускается этот тест
+
+    //добавили зависимость, если addCustomer упешно
+    //выполнен, то запускается этот тест
+    @Test(priority = 6, dependsOnMethods = {"addCustomer"})
+    void searchCustomer(){
         System.out.println("This is searchCustomer test");
     }
 
-    @Test(priority = 5) //специально проваливаем тест
+    //специально проваливаем тест
+    @Test(priority = 5)
     void addCustomer(){
         System.out.println("Add customer test");
         Assert.fail();

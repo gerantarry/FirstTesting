@@ -1,7 +1,7 @@
-package FirstTestSuite;/*
-1.setup - open browser and app.
-2.login
-3.close
+package FirstTestSuite;
+/*
+Знакомлюсь с аннотациями, приоритетами, группами.
+Делаю репорты по результатам теста в файл FirstTestSuite.xml
  */
 
 import org.testng.annotations.BeforeMethod;
