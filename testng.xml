@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="All Test Suite">
+
+    <test verbose="2" preserve-order="true" name="C:/Users/Gerant/IdeaProjects/FirstTesting">
+        <groups>
+            <run>
+                <include name="setup group"></include>
+            </run>
+        </groups>
+        <classes>
+
+            <class name="FirstTestSuite.FirstTestCase"></class>
+            <class name="FirstTestSuite.SecondTestCase"></class>
+
+
+        </classes>
+
+    </test>
+</suite>
