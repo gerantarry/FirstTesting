@@ -1,23 +1,32 @@
 package SecondTestSuite;
 
+import com.beust.jcommander.Parameter;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.io.File;
-
 public class TestExample {
-    ChromeDriverService service = new ChromeDriverService.Builder()
-            .usingDriverExecutable(new File("C:\\chromedriver\\chromedriver.exe")).build();
+
 
     ChromeDriver driver;
 
+    @BeforeClass
+    @Parameters({"url"})
+    void setup(String url) {
+
+        driver=new ChromeDriver();
+        driver.get(url);
+    }
+
     @Test
-    void setup() {
-        driver = new ChromeDriver(service);
-        driver.get("https://steam-helper.ru/");
+    void testlogo(){
+        WebElement logo = driver.findElement(By.xpath("//*[@id='masthead']/div/div[1]/div"));
+        Assert.assertTrue(logo.isDisplayed(),"logo not displayed");
     }
 
     @AfterClass
@@ -25,3 +34,7 @@ public class TestExample {
         driver.quit();
     }
 }
+/*
+System.setProperty("webdriver.opera.driver", "C:\\webdrivers\\operadriver.exe");
+        driver = new OperaDriver();
+ */
